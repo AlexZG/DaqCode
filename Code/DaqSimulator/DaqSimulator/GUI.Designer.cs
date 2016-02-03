@@ -60,26 +60,27 @@
             this.itmHelp});
             this.mnuTop.Location = new System.Drawing.Point(0, 0);
             this.mnuTop.Name = "mnuTop";
-            this.mnuTop.Size = new System.Drawing.Size(592, 33);
+            this.mnuTop.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.mnuTop.Size = new System.Drawing.Size(415, 24);
             this.mnuTop.TabIndex = 0;
             this.mnuTop.Text = "menuStrip1";
             // 
             // itmFile
             // 
             this.itmFile.Name = "itmFile";
-            this.itmFile.Size = new System.Drawing.Size(50, 29);
+            this.itmFile.Size = new System.Drawing.Size(37, 22);
             this.itmFile.Text = "File";
             // 
             // itmOperations
             // 
             this.itmOperations.Name = "itmOperations";
-            this.itmOperations.Size = new System.Drawing.Size(112, 29);
+            this.itmOperations.Size = new System.Drawing.Size(77, 22);
             this.itmOperations.Text = "Operations";
             // 
             // itmHelp
             // 
             this.itmHelp.Name = "itmHelp";
-            this.itmHelp.Size = new System.Drawing.Size(61, 29);
+            this.itmHelp.Size = new System.Drawing.Size(44, 22);
             this.itmHelp.Text = "Help";
             // 
             // grpSampling
@@ -87,9 +88,11 @@
             this.grpSampling.Controls.Add(this.lblNextSampTime);
             this.grpSampling.Controls.Add(this.btnSampling);
             this.grpSampling.Controls.Add(this.txtNextSampTime);
-            this.grpSampling.Location = new System.Drawing.Point(12, 48);
+            this.grpSampling.Location = new System.Drawing.Point(8, 31);
+            this.grpSampling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpSampling.Name = "grpSampling";
-            this.grpSampling.Size = new System.Drawing.Size(350, 157);
+            this.grpSampling.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSampling.Size = new System.Drawing.Size(233, 102);
             this.grpSampling.TabIndex = 1;
             this.grpSampling.TabStop = false;
             this.grpSampling.Text = "Sampling";
@@ -97,17 +100,19 @@
             // lblNextSampTime
             // 
             this.lblNextSampTime.AutoSize = true;
-            this.lblNextSampTime.Location = new System.Drawing.Point(7, 56);
+            this.lblNextSampTime.Location = new System.Drawing.Point(5, 36);
+            this.lblNextSampTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNextSampTime.Name = "lblNextSampTime";
-            this.lblNextSampTime.Size = new System.Drawing.Size(149, 20);
+            this.lblNextSampTime.Size = new System.Drawing.Size(101, 13);
             this.lblNextSampTime.TabIndex = 2;
             this.lblNextSampTime.Text = "Next Sampling Time";
             // 
             // btnSampling
             // 
-            this.btnSampling.Location = new System.Drawing.Point(11, 79);
+            this.btnSampling.Location = new System.Drawing.Point(7, 51);
+            this.btnSampling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSampling.Name = "btnSampling";
-            this.btnSampling.Size = new System.Drawing.Size(145, 35);
+            this.btnSampling.Size = new System.Drawing.Size(97, 23);
             this.btnSampling.TabIndex = 1;
             this.btnSampling.Text = "Sampling";
             this.btnSampling.UseVisualStyleBackColor = true;
@@ -115,10 +120,11 @@
             // 
             // txtNextSampTime
             // 
-            this.txtNextSampTime.Location = new System.Drawing.Point(162, 53);
+            this.txtNextSampTime.Location = new System.Drawing.Point(108, 34);
+            this.txtNextSampTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNextSampTime.Name = "txtNextSampTime";
             this.txtNextSampTime.ReadOnly = true;
-            this.txtNextSampTime.Size = new System.Drawing.Size(165, 26);
+            this.txtNextSampTime.Size = new System.Drawing.Size(111, 20);
             this.txtNextSampTime.TabIndex = 0;
             this.txtNextSampTime.TabStop = false;
             // 
@@ -127,9 +133,11 @@
             this.grpLogging.Controls.Add(this.lblNextLoggTime);
             this.grpLogging.Controls.Add(this.btnLogging);
             this.grpLogging.Controls.Add(this.txtNextLoggTime);
-            this.grpLogging.Location = new System.Drawing.Point(12, 230);
+            this.grpLogging.Location = new System.Drawing.Point(8, 149);
+            this.grpLogging.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpLogging.Name = "grpLogging";
-            this.grpLogging.Size = new System.Drawing.Size(350, 157);
+            this.grpLogging.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpLogging.Size = new System.Drawing.Size(233, 102);
             this.grpLogging.TabIndex = 3;
             this.grpLogging.TabStop = false;
             this.grpLogging.Text = "Logging";
@@ -137,62 +145,69 @@
             // lblNextLoggTime
             // 
             this.lblNextLoggTime.AutoSize = true;
-            this.lblNextLoggTime.Location = new System.Drawing.Point(7, 56);
+            this.lblNextLoggTime.Location = new System.Drawing.Point(5, 36);
+            this.lblNextLoggTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNextLoggTime.Name = "lblNextLoggTime";
-            this.lblNextLoggTime.Size = new System.Drawing.Size(140, 20);
+            this.lblNextLoggTime.Size = new System.Drawing.Size(96, 13);
             this.lblNextLoggTime.TabIndex = 2;
             this.lblNextLoggTime.Text = "Next Logging Time";
             // 
             // btnLogging
             // 
-            this.btnLogging.Location = new System.Drawing.Point(11, 79);
+            this.btnLogging.Location = new System.Drawing.Point(7, 51);
+            this.btnLogging.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogging.Name = "btnLogging";
-            this.btnLogging.Size = new System.Drawing.Size(145, 35);
+            this.btnLogging.Size = new System.Drawing.Size(97, 23);
             this.btnLogging.TabIndex = 1;
             this.btnLogging.Text = "Logg To File";
             this.btnLogging.UseVisualStyleBackColor = true;
             // 
             // txtNextLoggTime
             // 
-            this.txtNextLoggTime.Location = new System.Drawing.Point(162, 53);
+            this.txtNextLoggTime.Location = new System.Drawing.Point(108, 34);
+            this.txtNextLoggTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNextLoggTime.Name = "txtNextLoggTime";
             this.txtNextLoggTime.ReadOnly = true;
-            this.txtNextLoggTime.Size = new System.Drawing.Size(165, 26);
+            this.txtNextLoggTime.Size = new System.Drawing.Size(111, 20);
             this.txtNextLoggTime.TabIndex = 0;
             this.txtNextLoggTime.TabStop = false;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtSensorValue);
-            this.groupBox2.Location = new System.Drawing.Point(378, 48);
+            this.groupBox2.Location = new System.Drawing.Point(252, 31);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(199, 339);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(158, 220);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sensor Values";
             // 
             // txtSensorValue
             // 
-            this.txtSensorValue.Location = new System.Drawing.Point(7, 26);
+            this.txtSensorValue.Location = new System.Drawing.Point(5, 17);
+            this.txtSensorValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSensorValue.Multiline = true;
             this.txtSensorValue.Name = "txtSensorValue";
             this.txtSensorValue.ReadOnly = true;
-            this.txtSensorValue.Size = new System.Drawing.Size(186, 307);
+            this.txtSensorValue.Size = new System.Drawing.Size(146, 201);
             this.txtSensorValue.TabIndex = 0;
             this.txtSensorValue.TabStop = false;
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(592, 554);
+            this.ClientSize = new System.Drawing.Size(415, 360);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.grpLogging);
             this.Controls.Add(this.grpSampling);
             this.Controls.Add(this.mnuTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuTop;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "mainForm";
             this.Text = "DAQ Simulator";
             this.Load += new System.EventHandler(this.mainForm_Load);
