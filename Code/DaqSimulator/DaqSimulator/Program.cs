@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 using DaqSimulator.Properties;
 
 namespace DaqSimulator
@@ -13,10 +14,20 @@ namespace DaqSimulator
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        
+        private static int nAna { get; set; }
+        private static int nDig { get; set; }
+        private static int nSen { get; set; }
+
         [STAThread]
         static void Main(string[] args)
         {
-           
+
+            nAna = Settings.Default.numAna;
+            nDig = Settings.Default.numDig;
+            nSen = nAna + nDig;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainForm());
@@ -24,24 +35,50 @@ namespace DaqSimulator
         }
         public static Sensor[] createSensors()
         {
-            int i;
-            Sensor[] senObj = new Sensor[Settings.Default.numberOfSensors];
-            for(i = 0;i < Settings.Default.numberOfSensors;i++)
+            Sensor[] senObj = new Sensor[nSen];
+            if (nAna != 0 && nDig != 0)
             {
-                senObj[i] = new Sensor(i);
+                
+                for (int i = 0; i < nAna; i++)
+                {
+                    senObj[i] = new anaSensor();
+                }
+                for (int j = nAna; j < nAna + nDig; j++)
+                {
+                    senObj[j] = new digSensor();
+                }
             }
             return senObj;
         }
-        public static double[] getValues(Sensor[] sensObj)
+
+        public static DataTable createTable()
         {
-            int i;
-            double[] values = new double[Settings.Default.numberOfSensors];
-            for(i = 0;i<Settings.Default.numberOfSensors;i++)
-            {
-                values[i] = sensObj[i].GetValue();
-            }
-            return values;
+            DataTable table = new DataTable();
+            table.Columns.Add("sensorID", typeof(int));
+            table.Columns.Add("tStamp", typeof(DateTime));
+            table.Columns.Add("type", typeof(string));
+            table.Columns.Add("value", typeof(double));
+            return table;
+           
+            
         }
+
+        public static DataTable fillData(DataTable filltable, Sensor[] sensObj)
+        {
+            int count = 0;
+            foreach (Sensor element in sensObj)
+            {
+              
+                DataRow row = filltable.NewRow();
+                row["sensorID"] = sensObj[count].GetSensId;
+                row["tStamp"] = DateTime.Now;
+                row["type"] = sensObj[count].getSensType();
+                row["value"] = sensObj[count].GetValue();
+                filltable.Rows.Add(row);
+                count++;
+            }
+            return filltable;
+        }   
     }
 }
    

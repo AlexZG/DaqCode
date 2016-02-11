@@ -2,14 +2,20 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DaqSimulator.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="numberOfSensors" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
-    </Setting>
     <Setting Name="minVoltLim" Type="System.Double" Scope="User">
       <Value Profile="(Default)">-1</Value>
     </Setting>
     <Setting Name="maxVoltLim" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="numDig" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="numAna" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="sampleTime" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3.1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

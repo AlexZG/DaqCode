@@ -25,18 +25,6 @@ namespace DaqSimulator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int numberOfSensors {
-            get {
-                return ((int)(this["numberOfSensors"]));
-            }
-            set {
-                this["numberOfSensors"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("-1")]
         public double minVoltLim {
             get {
@@ -56,6 +44,42 @@ namespace DaqSimulator.Properties {
             }
             set {
                 this["maxVoltLim"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int numDig {
+            get {
+                return ((int)(this["numDig"]));
+            }
+            set {
+                this["numDig"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int numAna {
+            get {
+                return ((int)(this["numAna"]));
+            }
+            set {
+                this["numAna"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3.1")]
+        public double sampleTime {
+            get {
+                return ((double)(this["sampleTime"]));
+            }
+            set {
+                this["sampleTime"] = value;
             }
         }
     }
