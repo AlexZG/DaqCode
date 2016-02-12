@@ -17,5 +17,11 @@
     <Setting Name="sampleTime" Type="System.Double" Scope="User">
       <Value Profile="(Default)">3.1</Value>
     </Setting>
+    <Setting Name="filePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="fileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

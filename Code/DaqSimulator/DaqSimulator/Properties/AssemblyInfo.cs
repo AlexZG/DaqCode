@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DaqSimulator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Created for a school project, the DaqSimulator is as the name states a DAQ simulator that is used to simulate signals from both digital and analog sensors.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Alexander Zhang Gjerseth")]
 [assembly: AssemblyProduct("DaqSimulator")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

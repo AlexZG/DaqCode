@@ -61,11 +61,31 @@ namespace DaqSimulator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap azgLOGO {
+            get {
+                object obj = ResourceManager.GetObject("azgLOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap brandLOGO {
+            get {
+                object obj = ResourceManager.GetObject("brandLOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon theicon {
+        internal static System.Drawing.Icon favicon {
             get {
-                object obj = ResourceManager.GetObject("theicon", resourceCulture);
+                object obj = ResourceManager.GetObject("favicon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

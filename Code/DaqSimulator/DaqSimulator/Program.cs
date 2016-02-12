@@ -28,6 +28,8 @@ namespace DaqSimulator
             nDig = Settings.Default.numDig;
             nSen = nAna + nDig;
 
+            //TODO Add a form that opens when the program starts, before the mainForm opens. This is to set into auto or manual plus ability to change settings.
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainForm());
@@ -55,9 +57,9 @@ namespace DaqSimulator
         {
             DataTable table = new DataTable();
             table.Columns.Add("sensorID", typeof(int));
-            table.Columns.Add("tStamp", typeof(DateTime));
-            table.Columns.Add("type", typeof(string));
-            table.Columns.Add("value", typeof(double));
+            table.Columns.Add("timeStamp", typeof(string));
+            table.Columns.Add("sensorType", typeof(string));
+            table.Columns.Add("sensorValue", typeof(double));
             return table;
            
             
@@ -71,14 +73,15 @@ namespace DaqSimulator
               
                 DataRow row = filltable.NewRow();
                 row["sensorID"] = sensObj[count].GetSensId;
-                row["tStamp"] = DateTime.Now;
-                row["type"] = sensObj[count].getSensType();
-                row["value"] = sensObj[count].GetValue();
+                row["timeStamp"] = DateTime.Now.ToString("HH:mm:sss", new System.Globalization.CultureInfo("en-GB"));
+                row["sensorType"] = sensObj[count].getSensType();
+                row["sensorValue"] = sensObj[count].GetValue();
                 filltable.Rows.Add(row);
                 count++;
             }
             return filltable;
-        }   
+        }
+            //TODO ADD THREAD TO DO AUTOMATIC SAMPLING AND LOGGING.
     }
 }
    
