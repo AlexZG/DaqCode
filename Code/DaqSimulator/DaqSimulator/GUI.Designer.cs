@@ -54,6 +54,7 @@
             this.lblFileName = new System.Windows.Forms.Label();
             this.lblPath = new System.Windows.Forms.Label();
             this.btnSaveFilePath = new System.Windows.Forms.Button();
+            this.tmrCountLogging = new System.Windows.Forms.Timer(this.components);
             this.mnuTop.SuspendLayout();
             this.grpSampling.SuspendLayout();
             this.grpLogging.SuspendLayout();
@@ -334,6 +335,7 @@
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Button btnSaveFilePath;
+        private System.Windows.Forms.Timer tmrCountLogging;
     }
 }
 

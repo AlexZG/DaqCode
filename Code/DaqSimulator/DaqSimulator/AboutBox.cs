@@ -17,7 +17,6 @@ namespace DaqSimulator
             this.Text = String.Format("About");
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.labelDescription.Text = AssemblyDescription;
             
@@ -87,8 +86,15 @@ namespace DaqSimulator
         }
 
 
+
+
+
         #endregion
 
-      
+        private void labelCopyright_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.labelEmail.LinkVisited = true;
+            System.Diagnostics.Process.Start("mailto:republicofprogrammers@gmail.com");
+        }
     }
 }
