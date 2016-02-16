@@ -22,14 +22,18 @@ namespace DaqSimulator
         private DataTable dataTbl;
         private bool first;
         private double dfltTimeSample;
+        private double dfltTimeLogging;
         private double timeLeftSample;
+        private double timeLeftLogging;
 
         public mainForm()
         {
             InitializeComponent();
             first = true;
             dfltTimeSample = Settings.Default.sampleTime*10;
+            dfltTimeLogging = Settings.Default.dfltTimeLogging * 10;
             timeLeftSample = dfltTimeSample;
+            timeLeftLogging = 290;
             sensObj = Program.createSensors();
             dataTbl = Program.createTable();
             setupDesign();
@@ -239,6 +243,22 @@ namespace DaqSimulator
         private void btnSaveFilePath_Click(object sender, EventArgs e)
         {
             // TODO Make logics to test the input for the txtboxes, test if path and filename is good then save to settings.
+        }
+
+        private void tmrCountLogging_Tick(object sender, EventArgs e)
+        {
+            if (timeLeftLogging > 0)
+            {
+                timeLeftLogging--;
+                lblCountLogging.Text = (timeLeftLogging / 10).ToString("F1") + " Seconds";
+            }
+            else
+            {
+                tmrCountSample.Stop();
+                timeLeftSample = dfltTimeSample;
+                lblCountSample.Text = "Ready for new Sampling";
+                btnSampling.Enabled = true;
+            }
         }
     }
 }

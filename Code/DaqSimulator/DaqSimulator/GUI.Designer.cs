@@ -277,6 +277,10 @@
             this.btnSaveFilePath.UseVisualStyleBackColor = true;
             this.btnSaveFilePath.Click += new System.EventHandler(this.btnSaveFilePath_Click);
             // 
+            // tmrCountLogging
+            // 
+            this.tmrCountLogging.Tick += new System.EventHandler(this.tmrCountLogging_Tick);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

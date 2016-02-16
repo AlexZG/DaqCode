@@ -106,5 +106,17 @@ namespace DaqSimulator.Properties {
                 this["fileName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("29")]
+        public double dfltTimeLogging {
+            get {
+                return ((double)(this["dfltTimeLogging"]));
+            }
+            set {
+                this["dfltTimeLogging"] = value;
+            }
+        }
     }
 }
