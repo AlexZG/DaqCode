@@ -49,7 +49,7 @@
             this.fbdPath = new System.Windows.Forms.FolderBrowserDialog();
             this.btnOpenFBD = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFileName = new System.Windows.Forms.TextBox();
             this.grpFilePath = new System.Windows.Forms.GroupBox();
             this.lblFileName = new System.Windows.Forms.Label();
             this.lblPath = new System.Windows.Forms.Label();
@@ -226,13 +226,13 @@
             this.txtPath.Size = new System.Drawing.Size(307, 20);
             this.txtPath.TabIndex = 7;
             // 
-            // textBox1
+            // txtFileName
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 76);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 22);
-            this.textBox1.TabIndex = 8;
+            this.txtFileName.Location = new System.Drawing.Point(10, 76);
+            this.txtFileName.Multiline = true;
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(160, 22);
+            this.txtFileName.TabIndex = 8;
             // 
             // grpFilePath
             // 
@@ -240,7 +240,7 @@
             this.grpFilePath.Controls.Add(this.lblPath);
             this.grpFilePath.Controls.Add(this.btnSaveFilePath);
             this.grpFilePath.Controls.Add(this.txtPath);
-            this.grpFilePath.Controls.Add(this.textBox1);
+            this.grpFilePath.Controls.Add(this.txtFileName);
             this.grpFilePath.Controls.Add(this.btnOpenFBD);
             this.grpFilePath.Location = new System.Drawing.Point(8, 206);
             this.grpFilePath.Name = "grpFilePath";
@@ -334,7 +334,7 @@
         private System.Windows.Forms.FolderBrowserDialog fbdPath;
         private System.Windows.Forms.Button btnOpenFBD;
         private System.Windows.Forms.TextBox txtPath;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.GroupBox grpFilePath;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Label lblPath;

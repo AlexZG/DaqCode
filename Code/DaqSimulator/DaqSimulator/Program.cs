@@ -28,8 +28,6 @@ namespace DaqSimulator
             nDig = Settings.Default.numDig;
             nSen = nAna + nDig;
 
-            //TODO Add a form that opens when the program starts, before the mainForm opens. This is to set into auto or manual plus ability to change settings.
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainForm());
@@ -81,7 +79,7 @@ namespace DaqSimulator
             }
             return filltable;
         }
-            //TODO ADD THREAD TO DO AUTOMATIC SAMPLING AND LOGGING.
+         
     }
 }
    

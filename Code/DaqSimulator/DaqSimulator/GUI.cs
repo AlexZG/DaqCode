@@ -25,6 +25,8 @@ namespace DaqSimulator
         private double dfltTimeLogging;
         private double timeLeftSample;
         private double timeLeftLogging;
+        private static string path;
+        private static string fileName;
 
         public mainForm()
         {
@@ -36,21 +38,19 @@ namespace DaqSimulator
             timeLeftLogging = 290;
             sensObj = Program.createSensors();
             dataTbl = Program.createTable();
+            path = Settings.Default.filePath;
+            fileName = Settings.Default.fileName;
+            
             setupDesign();
-            hlpProvider.SetHelpString(btnSampling, "Hello World");
-            hlpProvider.SetHelpString(btnLogging, "DU HAST");
+
 
         }
         //When btn sampling has been clicked it calls the method getTable and sets the value of the
         private void btnSampling_Click(object sender, EventArgs e)
         {
-            if(lblCountSample.Text != "Ready for new Sampling")
-            {
-                return;
-            }
+            tmrCountSample.Start();
             dataTbl = getTable(dataTbl);
             dgvData.DataSource = dataTbl;
-            tmrCountSample.Start();
             btnSampling.Enabled = false;
 
             if (first == true)
@@ -59,13 +59,14 @@ namespace DaqSimulator
             }
         }
 
-
+        //Gets values from program.filldata method
         private DataTable getTable(DataTable table)
         {
             table.Clear();
             table = Program.fillData(table, sensObj);
             return table;
         }
+        //Sets up the design of the gui
         private void setupDesign()
         {
             dgvData.DataSource = dataTbl;
@@ -86,7 +87,9 @@ namespace DaqSimulator
             dgvData.Columns[3].Width = 100;
             dgvData.Columns[3].HeaderText = "Sensor Value";
             txtPath.Text = Settings.Default.filePath;
+            txtFileName.Text = Settings.Default.fileName;
         }
+        //Method for rezise the data grid view 
         private void autoHeightDGV()
         {
             int sum = this.dgvData.ColumnHeadersHeight;
@@ -107,7 +110,7 @@ namespace DaqSimulator
             }
             first = false;
         }
-
+        //Timer tick event for the count sample timer, this checks if time left is bigger than zero
         private void tmrCountSample_Tick(object sender, EventArgs e)
         {
  
@@ -124,7 +127,7 @@ namespace DaqSimulator
                 btnSampling.Enabled = true;
             }
         }
-
+        //Just tried to implement help box
         private void itmEnableHelp_Click(object sender, EventArgs e)
         {
             if(itmEnableHelp.Checked == false)
@@ -136,12 +139,13 @@ namespace DaqSimulator
                 itmEnableHelp.Checked = false;
             }
         }
-
+        //Event if the about item is clicked, opens the about form
         private void itmAbout_Click(object sender, EventArgs e)
         {
             AboutBox aboutWindow = new AboutBox();
             aboutWindow.ShowDialog();
         }
+        //Fills a string with the content of datatable
         private static string dataTableToCSV(DataTable table,bool newFile)
         {
             StringBuilder sb = new StringBuilder();
@@ -184,47 +188,57 @@ namespace DaqSimulator
             }
             catch(Exception ex)
             {
-                //TODO Enter code that cathces some exeption
+                MessageBox.Show(ex.ToString());
             }
             return sb.ToString();
         }
-
+        //Event when button logging is clicked
         private void btnLogging_Click(object sender, EventArgs e)
         {
-            logToFile(dataTbl, @"c:\temp\", @"\MyTest.txt");
+            tmrCountLogging.Start();
+            logToFile(dataTbl);
         }
-        private static void logToFile(DataTable dt,string path,string fileName)
+        //Method that writes a string to file
+        private static void logToFile(DataTable dt)
         {
             try
             {
 
-            
-            string mydocpath =
-                                Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                path = Settings.Default.filePath;
+                fileName = Settings.Default.fileName;
+                if (string.IsNullOrEmpty(path))
+                {
+                    path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                }
+                if (string.IsNullOrEmpty(fileName))
+                {
+                    fileName = "sensorLog.txt";
+                }
+                string filePath = Path.Combine(path, fileName);
 
-            string logTxt = null;
-            string filePath = mydocpath + fileName;
-            if (!File.Exists(mydocpath + fileName))
-            {
-                logTxt = dataTableToCSV(dt,true);
+                string logTxt = null;
+
+                if (!File.Exists(filePath))
+                {
+                    logTxt = dataTableToCSV(dt,true);
              
-            }
-            else
-            {
-                logTxt = dataTableToCSV(dt, false);
+                }
+                else
+                {
+                    logTxt = dataTableToCSV(dt, false);
                
-            }
-            using (StreamWriter sw = File.AppendText(filePath))
-            {
-                sw.Write(logTxt);
-            }
+                }
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.Write(logTxt);
+                }
             }
             catch(Exception ex)
             {
-               //TODO enter code that cathces path error exeption
+                MessageBox.Show(ex.ToString());
             }
         }
-
+        //Code when file dialog browser is clicked, saves the selected path
         private void btnOpenFBD_Click(object sender, EventArgs e)
         {
             DialogResult result = fbdPath.ShowDialog();
@@ -242,7 +256,10 @@ namespace DaqSimulator
 
         private void btnSaveFilePath_Click(object sender, EventArgs e)
         {
-            // TODO Make logics to test the input for the txtboxes, test if path and filename is good then save to settings.
+            Settings.Default.filePath = fbdPath.SelectedPath;
+            Settings.Default.fileName = txtFileName.Text;
+            Settings.Default.Save();
+            MessageBox.Show(Settings.Default.fileName);
         }
 
         private void tmrCountLogging_Tick(object sender, EventArgs e)
@@ -254,10 +271,10 @@ namespace DaqSimulator
             }
             else
             {
-                tmrCountSample.Stop();
-                timeLeftSample = dfltTimeSample;
-                lblCountSample.Text = "Ready for new Sampling";
-                btnSampling.Enabled = true;
+                tmrCountLogging.Stop();
+                timeLeftLogging = dfltTimeLogging;
+                lblCountLogging.Text = "Ready for new Sampling";
+                btnLogging.Enabled = true;
             }
         }
     }
